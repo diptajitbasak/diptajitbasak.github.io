@@ -1,0 +1,61 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+@media print
+{    
+  .no-print, .no-print *
+  {
+    display: none !important;
+  }
+
+  .only-print {
+    display: show;
+  }
+}
+
+img {
+  border-radius: 100%;
+}
+
+p {
+  color: #3d3c3c;
+}
+
+button {
+  padding: 15px;
+  text-align: center;
+  line-height: 1.66;
+  min-width: 170px;
+  display: inline-block;
+  border: none;
+  border-radius: 2px;
+  margin-right: 8px;
+  font-size: 12px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+button:focus, button:active {
+  outline: none;
+}
+
+.btn_primary {
+  color: white;
+  background-color: black;
+}
+
+.title_color {
+  color: #383838;
+}
+
+section {
+  border-bottom: 1px solid #eeeeee;
+}
+
+ul {
+  padding-left: 25px;
+  font-style: italic;
+  color: #3d3c3c;
+}

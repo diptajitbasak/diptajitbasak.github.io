@@ -1,0 +1,23 @@
+/* Navbar */
+
+nav {
+  border-bottom: 1px solid #eeeeee;
+}
+
+.navbar-nav a {
+  color: #383838;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 20px 20px !important;
+  text-transform: uppercase;
+}
+
+/* Hero-section */
+
+#section_warp {
+  padding: 30px 0;
+}
+
+.high-col {
+  color: #172cbf;
+}
