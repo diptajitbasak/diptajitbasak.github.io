@@ -9,9 +9,12 @@
   <link rel="stylesheet" href="https://cdn.lineicons.com/1.0.1/LineIcons.min.css">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="main.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.3/jspdf.min.js"></script>
+  <script src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
   <style>@page { size: A4 }</style>
 </head>
-<body class="A4">
+<body class="A4 canvas_div_pdf" id="">
   <nav class="navbar navbar-expand-lg">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -73,13 +76,17 @@
               </tr>
               <tr class="only-print">
                 <td>Website</td>
-                <td>diptajit.github.io</td>
+                <td>
+                  <a href="http://diptajitbasak.github.io" rel="noopener noreferrer">
+                    diptajitbasak.github.io
+                  </a>
+                </td>
               </tr>
             </table>
           </div>
           <div class="button-group my-4 d-flex flex-column flex-md-row justify-content-center justify-content-md-start no-print">
             <button class="btn_primary mb-2">Contact Me</button>
-            <button class="mb-2">Download Cv</button>
+            <button class="mb-2" id="downloadPDF">Download Cv</button>
           </div>
         </div>
       </div>
@@ -231,4 +238,38 @@
     </div>    
   </section>
 </body>
+<script type="text/Javascript">
+  $(document).ready(function(){
+    $("#downloadPDF").click(function(){
+      $("nav").hide();
+      $("button").hide();
+      var HTML_Width = $(".canvas_div_pdf").width();
+      var HTML_Height = $(".canvas_div_pdf").height();
+      var top_left_margin = 15;
+      var PDF_Width = HTML_Width+(top_left_margin*2);
+      var PDF_Height = (PDF_Width*1.5)+(top_left_margin*2);
+      var canvas_image_width = HTML_Width;
+      var canvas_image_height = HTML_Height;
+      
+      var totalPDFPages = Math.ceil(HTML_Height/PDF_Height)-1;
+      
+      
+      html2canvas($(".canvas_div_pdf")[0],{allowTaint:true}).then(function(canvas) {
+      canvas.getContext('2d');
+  
+      var imgData = canvas.toDataURL("image/jpeg", 1.0);
+      var pdf = new jsPDF('p', 'pt',  [PDF_Width, PDF_Height]);
+      pdf.addImage(imgData, 'JPG', top_left_margin, top_left_margin,canvas_image_width,canvas_image_height);
+      
+      
+      for (var i = 1; i <= totalPDFPages; i++) { 
+        pdf.addPage(PDF_Width, PDF_Height);
+        pdf.addImage(imgData, 'JPG', top_left_margin, -(PDF_Height*i)+(top_left_margin*4),canvas_image_width,canvas_image_height);
+      }
+ 
+      pdf.save("Diptajit.pdf");
+      });
+    });
+  });
+</script>
 </html>
