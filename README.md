@@ -1,2 +1,2 @@
-# diptajit.github.io
+# diptajitbasak.github.io
 Portfolio website
