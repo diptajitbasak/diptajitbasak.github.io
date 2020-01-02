@@ -60,3 +60,19 @@ ul {
   font-style: italic;
   color: #3d3c3c;
 }
+
+
+input, textarea {
+  padding: 10px 20px;
+  color: #3d3c3c;
+  font-size: 13px;
+  outline: none;
+}
+
+input:focus, textarea:focus {
+  border: 1px solid black;
+}
+
+textarea {
+  height: 110px;
+}
