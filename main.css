@@ -67,10 +67,17 @@ input, textarea {
   color: #3d3c3c !important;
   font-size: 13px !important;
   outline: none !important;
+  resize: none !important;
 }
 
 input:focus, textarea:focus {
-  border: 1px solid black !important;
+  outline: 1px solid black !important;
+  transition: all .33s ease !important;
+}
+
+input:hover, textarea:hover {
+  outline: 1px solid black !important;
+  transition: all .33s ease !important;
 }
 
 textarea {
