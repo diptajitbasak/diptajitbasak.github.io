@@ -41,8 +41,8 @@ const Hero = () => {
             <div className="relative">
               <div className="w-64 h-64 md:w-80 md:h-80 bg-purple-100 rounded-full overflow-hidden border-8 border-white shadow-xl">
                 <img 
-                  src="https://images.unsplash.com/photo-1649972904349-6e44c42644a7?crop=faces&cs=tinysrgb&fit=crop&h=400&w=400" 
-                  alt="Profile" 
+                  src="/lovable-uploads/31ca6557-51e4-4c1d-a087-3e1c43defc54.png" 
+                  alt="Diptajit Basak" 
                   className="object-cover w-full h-full"
                 />
               </div>
